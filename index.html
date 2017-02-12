@@ -14,6 +14,20 @@
     <div class="clock-body">
       <div class="your-clock"></div>
     </div>
+    <section class="buttons">
+      <div class="start">
+        <div class="btn" id="start-btn"></div>
+        <p>Start</p>
+      </div>
+      <div class="stop">
+        <div class="btn" id="stop-btn"></div>
+        <p>Stop</p>
+      </div>
+      <!-- <div class="reset">
+        <div class="btn" id="reset-btn"></div>
+        <p>Reset</p>
+      </div> -->
+    </section>
 
     <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -21,11 +35,27 @@
   crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
     <script type="text/javascript">
-      const clock = $('.your-clock').FlipClock(3000, {
+      const clock = $('.your-clock').FlipClock(1500, {
         clockFace: 'MinuteCounter',
         countdown: true,
         showSeconds: true
       });
+
+      function stopClock() {
+        clock.stop();
+      }
+
+      function startClock() {
+        clock.start();
+      }
+
+      // function resetClock() {
+      //   clock.reset();
+      // }
+
+      $('#start-btn').on('click', startClock);
+      $('#stop-btn').on('click', stopClock);
+      // $('#reset-btn').on('click', resetClock);
     </script>
   </body>
 </html>
