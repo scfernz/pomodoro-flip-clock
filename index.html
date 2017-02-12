@@ -4,10 +4,28 @@
     <meta charset="utf-8">
     <title>Pomodoro Flip Clock by scfernz</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="flipclock.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </head>
   <body>
+    <header>
+      <h1>Pomodoro Flip Clock</h1>
+    </header>
     <div class="clock-body">
-
+      <div class="your-clock"></div>
     </div>
+
+    <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
+    <script type="text/javascript">
+      const clock = $('.your-clock').FlipClock(3000, {
+        clockFace: 'MinuteCounter',
+        countdown: true,
+        showSeconds: true
+      });
+    </script>
   </body>
 </html>
