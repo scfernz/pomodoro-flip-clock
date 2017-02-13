@@ -52,6 +52,9 @@ header {
 .stop {
   color: #B33A3A;
 }
+.reset {
+  color: #777;
+}
 
 #start-btn:after {
   content: "►";
@@ -69,6 +72,15 @@ header {
   position: relative;
   top: 10px;
   text-shadow: 2px 2px 2px #EAB;
+}
+
+#reset-btn:after {
+  content: "↺";
+  font-size: 2.5em;
+  left: 19px;
+  position: relative;
+  top: 8px;
+  text-shadow: 2px 2px 2px #aaa;
 }
 
 

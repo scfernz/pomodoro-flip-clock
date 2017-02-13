@@ -23,11 +23,13 @@
         <div class="btn" id="stop-btn"></div>
         <p>Stop</p>
       </div>
-      <!-- <div class="reset">
+      <div class="reset">
         <div class="btn" id="reset-btn"></div>
         <p>Reset</p>
-      </div> -->
+      </div>
     </section>
+
+    <audio id="ghd" src="ghd-audio.mp3"></audio>
 
     <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -35,7 +37,8 @@
   crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
     <script type="text/javascript">
-      const clock = $('.your-clock').FlipClock(1500, {
+      const audio = document.getElementById('ghd');
+      var clock = $('.your-clock').FlipClock(1500, {
         clockFace: 'MinuteCounter',
         countdown: true,
         showSeconds: true
@@ -49,13 +52,17 @@
         clock.start();
       }
 
-      // function resetClock() {
-      //   clock.reset();
-      // }
+      function resetClock() {
+        clock = $('.your-clock').FlipClock(3, {
+          clockFace: 'MinuteCounter',
+          countdown: true,
+          showSeconds: true
+        });
+      }
 
       $('#start-btn').on('click', startClock);
       $('#stop-btn').on('click', stopClock);
-      // $('#reset-btn').on('click', resetClock);
+      $('#reset-btn').on('click', resetClock);
     </script>
   </body>
 </html>
