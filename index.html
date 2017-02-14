@@ -44,6 +44,16 @@
         showSeconds: true
       });
 
+      setInterval(() => {
+        console.log('checking');
+        if (clock.time.time === 0) {
+          audio.play();
+        } else {
+          audio.pause();
+          audio.load();
+        }
+      }, 3000);
+
       function stopClock() {
         clock.stop();
       }
@@ -53,7 +63,7 @@
       }
 
       function resetClock() {
-        clock = $('.your-clock').FlipClock(3, {
+        clock = $('.your-clock').FlipClock(1500, {
           clockFace: 'MinuteCounter',
           countdown: true,
           showSeconds: true
