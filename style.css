@@ -23,7 +23,11 @@ header {
   border-radius: 10px;
   max-width: 600px;
   color: tomato;
-  margin: 0 auto;
+  margin: 2em auto;
+}
+
+.spacer {
+  color: darkkhaki;
 }
 
 .clock-body {

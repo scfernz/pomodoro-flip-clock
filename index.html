@@ -15,9 +15,11 @@
       <div class="pomodoro">
         Pomodoro
       </div>
+      <div class="spacer">|</div>
       <div class="break">
         Break
       </div>
+      <div class="spacer">|</div>
       <div class="custom">
         Set Time
       </div>
@@ -49,7 +51,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
     <script type="text/javascript">
       const audio = document.getElementById('ghd');
-      var clock = $('.your-clock').FlipClock(1500, {
+      let pomoTime = 1500;
+      let breakTime = 300;
+
+      $('.pomodoro').append(`(${pomoTime / 60}m)`);
+      $('.break').append(`(${breakTime / 60}m)`);
+      var clock = $('.your-clock').FlipClock(pomoTime, {
         clockFace: 'MinuteCounter',
         countdown: true,
         showSeconds: true
@@ -74,13 +81,32 @@
       }
 
       function resetClock() {
-        clock = $('.your-clock').FlipClock(1500, {
+        clock = $('.your-clock').FlipClock(pomoTime, {
           clockFace: 'MinuteCounter',
           countdown: true,
           showSeconds: true
         });
       }
 
+      function setNewPomoTime() {
+        pomoTime = prompt('How many minutes would you like to set the pomodoro timer to?') * 60;
+        $('.pomodoro').text(`Pomodoro (${pomoTime / 60}m)`);
+        breakTime = prompt('How many minutes would you like to set the break timer to?') * 60;
+        $('.break').text(`Break (${breakTime / 60}m)`);
+        resetClock();
+      }
+
+      function runBreak() {
+        clock = $('.your-clock').FlipClock(breakTime, {
+          clockFace: 'MinuteCounter',
+          countdown: true,
+          showSeconds: true
+        });
+      }
+
+      $('.pomodoro').on('click', resetClock);
+      $('.break').on('click', runBreak);
+      $('.custom').on('click', setNewPomoTime);
       $('#start-btn').on('click', startClock);
       $('#stop-btn').on('click', stopClock);
       $('#reset-btn').on('click', resetClock);
